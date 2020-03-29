@@ -1,0 +1,42 @@
+.button-heading {
+    font-size: 20px;
+}
+
+.button-container {
+    margin-top: 50px;
+    display: inline-block;
+}
+
+.button-background-on {
+    background-color: lightgreen;
+}
+
+.button-background-off {
+    background-color: lightgrey;
+}
+
+.button-on {
+    margin-left: 43.5px;
+    transition: margin-left .5s;
+}
+
+.button-off {
+    margin-left: 3.5px;
+    transition: margin-left .5s;
+}
+
+.button-cover {
+    width: 70px;
+    height: 28px;
+    border: 1px solid #000000;
+    border-radius: 14px;
+    
+}
+
+.on-switch {
+    width: 20px;
+    height: 20px;
+    border-radius: 9px;
+    border: 1px solid #000000;
+    margin-top: 2.5px;
+}
