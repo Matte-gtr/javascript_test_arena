@@ -12,22 +12,48 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container-fluid center">
 		<div class="row">
-			<div class="button-container">
-				<div class="button-heading">POWER</div>
-				<div id="power-button-container" class="button-cover button-background-off">
-					<button id="power-button" class="on-switch button-off" onclick="buttonPower(this)"></button>
+			<div class="col-4">
+				<div class="button-container">
+					<div class="button-heading">POWER</div>
+					<div id="power-button-container" class="button-cover button-background-off">
+						<div id="power-button" class="on-switch button-off" onclick="buttonPower(this)"></div>
+					</div>
 				</div>
 			</div>
-			<div class="button-container">
-				<div class="button-heading">STRICT</div>
-				<div id="strict-button-container" class="button-cover button-background-off">
-					<button id="strict-button" class="on-switch button-off" onclick="buttonPower(this)"></button>
+			<div class="col-4">
+				<div class="button-container">
+					<div class="button-heading">STRICT</div>
+					<div id="strict-button-container" class="button-cover button-background-off">
+						<div id="strict-button" class="on-switch button-off" onclick="buttonPower(this)"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="button-container">
+					<div class="button-heading">SOUND</div>
+					<div id="sound-button-container" class="button-cover button-background-on">
+						<div id="sound-button" class="on-switch button-on" onclick="buttonPower(this)"></div>
+					</div>
 				</div>
 			</div>
 		</div>
-        <button onclick="powerCheck(power)">Check</button>
+		<div class="row">
+			<div class="col-12">
+				<div id="outer-circle">
+					<div class="row half-circle">
+						<div id="section-1" class="simon-section col-6"></div>
+						<div id="section-2" class="simon-section col-6"></div>
+					</div>
+					<div class="row half-circle">
+						<div id="section-3" class="simon-section col-6"></div>
+						<div id="section-4" class="simon-section col-6"></div>
+					</div>
+					<div id="section-5" class="center-section"></div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
