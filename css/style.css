@@ -88,6 +88,7 @@
     width: 100%;
     height: 100%;
     background-color: rgba(250, 250, 250, 0.5);
+    z-index: 2;
 }
 
 .simon-section-top {
@@ -105,12 +106,13 @@
 .center-section {
     height: 150px;
     width: 150px;
-    border: 4px solid black;
+    border: 8px solid black;
     border-radius: 75px;
     margin: auto;
     position: relative;
     transform: translateY(-178%);
     z-index: 2;
+    overflow: hidden;
 }
 
 #section-1 {

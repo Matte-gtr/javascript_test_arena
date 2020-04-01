@@ -4,12 +4,18 @@ let sound = true;
 let sequence = [];
 let playerSequence = [];
 let difficulty = 4;
+let playerTurn = false;
+let lightups = 0;
+let interval = 0;
+let level;
+let correctSequence;
 
-const topLeft = $("#section-1");
-const topRight = $("#section-2");
-const bottomLeft = $("#section-3");
-const bottomRight = $("#section-4");
-const middle = $("#section-5");
+const topLeft = $("#section-1").children();
+const topRight = $("#section-2").children();
+const bottomLeft = $("#section-3").children();
+const bottomRight = $("#section-4").children();
+const middle = $("#section-5").children();
+const gameConsole = $(".console")
 
 function buttonPower(el) {
     let prnt = $(el).parent();
@@ -26,10 +32,10 @@ function buttonPower(el) {
 $("#power-button").click(function () {
     if ($("#power-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
         power = true;
-        $(".console").html("Click Play to Start");
+        gameConsole.html("Click Play to Start");
     } else {
         power = false;
-        $(".console").html("");
+        gameConsole.html("");
         sequence = [];
         $(".play-button").html("Play");
     };
@@ -54,8 +60,10 @@ $("#sound-button").click(function () {
 $("#hard-button").click(function () {
     if ($("#hard-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
         difficulty = 5;
+        middle.addClass("light");
     } else {
         difficulty = 4;
+        middle.removeClass("light");
     };
 });
 
@@ -72,41 +80,86 @@ window.addEventListener("keyup", function (key) {
 });
 
 function randomNumber(max) {
-    newNum = Math.floor(Math.random() * Math.floor(max));
-    if (newNum == 0) {
-        return topLeft;
-    } else if (newNum == 1) {
-        return topRight;
-    } else if (newNum == 2) {
-        return bottomLeft;
-    } else if (newNum == 3) {
-        return bottomRight;
-    } else if (newNum == 4) {
-        return middle;
-    };
+    return newNum = Math.floor(Math.random() * Math.floor(max));
 };
 
 function startGame() {
     if (power == true) {
-        sequence = [];
+        //sequence = [];
+        playerSequence = [];
+        lightups = 0;
+        interval = 0;
+        level = 1;
+        correctSequence = true;
         $(".play-button").html("Reset");
-        let level = sequence.length + 1;
         $(".console").html(level);
         sequence.push(randomNumber(difficulty));
-        playGame()
+        playerTurn = false;
+        console.log(sequence);
+        Interval = setInterval(playGame,1100);
     };
 };
 
 function playGame() {
-    for (let light of sequence) {
-        light.child().addClass("active")
+    power = false;
+    if (lightups == level) {
+        console.log("players turn");
+        clearInterval(Interval);
+        playerTurn = true;
+        power = true;
+    };
+    if (playerTurn == false) {
+        setTimeout(function() {
+            if (sequence[lightups] == 0) {
+                one();
+            } else if (sequence[lightups] == 1) {
+                two();
+            } else if (sequence[lightups] == 2) {
+                three();
+            } else if (sequence[lightups] == 3) {
+                four();
+            } else if (sequence[lightups] == 4) {
+                five();
+            };
+            lightups++
+        }, 300)
     };
 };
 
+function one() {
+    topLeft.removeClass("light");
+    setTimeout(function() {
+        topLeft.addClass("light");
+    }, 700);
+};
 
+function two() {
+    topRight.removeClass("light");
+    setTimeout(function() {
+        topRight.addClass("light");
+    }, 700);
+};
 
+function three() {
+    bottomLeft.removeClass("light");
+    setTimeout(function() {
+        bottomLeft.addClass("light");
+    }, 700);
+};
 
+function four() {
+    bottomRight.removeClass("light");
+    setTimeout(function() {
+        bottomRight.addClass("light");
+    }, 700);
+};
 
+function five() {
+    middle.removeClass("light");
+    setTimeout(function() {
+        middle.addClass("light");
+    }, 700);
+};
 
 
 
