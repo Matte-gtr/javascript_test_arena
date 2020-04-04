@@ -10,12 +10,12 @@ let interval = 0;
 let level;
 let clicks = 0;
 
-const topLeft = $("#section-1").children();
-const topRight = $("#section-2").children();
-const bottomLeft = $("#section-3").children();
-const bottomRight = $("#section-4").children();
-const middle = $("#section-5").children();
-const gameConsole = $(".console")
+const topLeft = $("#section-1");
+const topRight = $("#section-2");
+const bottomLeft = $("#section-3");
+const bottomRight = $("#section-4");
+const middle = $("#section-5");
+const gameConsole = $(".console");
 
 function buttonPower(el) {
     let prnt = $(el).parent();
@@ -32,7 +32,7 @@ function buttonPower(el) {
 $("#power-button").click(function () {
     if ($("#power-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
         power = true;
-        gameConsole.html("CLICK PLAY TO START");
+        gameConsole.html("-");
     } else {
         power = false;
         gameConsole.html("");
@@ -61,23 +61,24 @@ $("#sound-button").click(function () {
 $("#hard-button").click(function () {
     if ($("#hard-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
         difficulty = 5;
-        middle.addClass("light");
     } else {
         difficulty = 4;
-        middle.removeClass("light");
     };
 });
 
 window.addEventListener("keydown", function (key) {
     if (key.keyCode == 17) {
-        $("#hard-display").removeClass("hidden-button");
+        if (sequence.includes(4)) {
+        } else {
+            $("#hard-display").removeClass("hidden-button");
+        };
     };
 });
 
 window.addEventListener("keyup", function (key) {
     if (key.keyCode == 17) {
-        setTimeout(function() {
-        $("#hard-display").addClass("hidden-button");
+        setTimeout(function () {
+            $("#hard-display").addClass("hidden-button");
         }, 500);
     };
 });
@@ -129,37 +130,37 @@ function playGame() {
 };
 
 function one() {
-    topLeft.removeClass("light");
+    topLeft.children().addClass("light");
     setTimeout(function () {
-        topLeft.addClass("light");
+        topLeft.children().removeClass("light");
     }, 500);
 };
 
 function two() {
-    topRight.removeClass("light");
+    topRight.children().addClass("light");
     setTimeout(function () {
-        topRight.addClass("light");
+        topRight.children().removeClass("light");
     }, 500);
 };
 
 function three() {
-    bottomLeft.removeClass("light");
+    bottomLeft.children().addClass("light");
     setTimeout(function () {
-        bottomLeft.addClass("light");
+        bottomLeft.children().removeClass("light");
     }, 500);
 };
 
 function four() {
-    bottomRight.removeClass("light");
+    bottomRight.children().addClass("light");
     setTimeout(function () {
-        bottomRight.addClass("light");
+        bottomRight.children().removeClass("light");
     }, 500);
 };
 
 function five() {
-    middle.removeClass("light");
+    middle.children().addClass("light");
     setTimeout(function () {
-        middle.addClass("light");
+        middle.children().removeClass("light");
     }, 500);
 };
 
