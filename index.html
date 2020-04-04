@@ -9,6 +9,7 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
+    <audio src=""></audio>
 </head>
 
 <body>
@@ -55,21 +56,21 @@
 				<div id="outer-circle">
 					<div class="row half-circle">
 						<div id="section-1" class="simon-section simon-section-top col-6">
-							<div class="inner-cover light"></div>
+							<div class="inner-cover" onclick="playerGame(0)"></div>
 						</div>
 						<div id="section-2" class="simon-section simon-section-top col-6">
-							<div class="inner-cover light"></div>
+							<div class="inner-cover" onclick="playerGame(1)"></div>
 						</div>
 					</div>
 					<div class="row half-circle">
 						<div id="section-3" class="simon-section simon-section-bottom col-6">
-							<div class="inner-cover light"></div>
+							<div class="inner-cover" onclick="playerGame(2)"></div>
 						</div>
 						<div id="section-4" class="simon-section simon-section-bottom col-6">
-							<div class="inner-cover light"></div>
+							<div class="inner-cover" onclick="playerGame(3)"></div>
 						</div>
 					</div>
-					<div id="section-5" class="center-section">
+					<div id="section-5" class="center-section" onclick="playerGame(4)">
 						<div class="inner-cover"></div>
 					</div>
 				</div>

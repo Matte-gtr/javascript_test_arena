@@ -8,7 +8,7 @@ let playerTurn = false;
 let lightups = 0;
 let interval = 0;
 let level;
-let correctSequence;
+let clicks = 0;
 
 const topLeft = $("#section-1").children();
 const topRight = $("#section-2").children();
@@ -32,12 +32,13 @@ function buttonPower(el) {
 $("#power-button").click(function () {
     if ($("#power-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
         power = true;
-        gameConsole.html("Click Play to Start");
+        gameConsole.html("CLICK PLAY TO START");
     } else {
         power = false;
         gameConsole.html("");
         sequence = [];
-        $(".play-button").html("Play");
+        playerTurn = false;
+        $(".play-button").html("PLAY");
     };
 });
 
@@ -75,7 +76,9 @@ window.addEventListener("keydown", function (key) {
 
 window.addEventListener("keyup", function (key) {
     if (key.keyCode == 17) {
+        setTimeout(function() {
         $("#hard-display").addClass("hidden-button");
+        }, 500);
     };
 });
 
@@ -85,31 +88,25 @@ function randomNumber(max) {
 
 function startGame() {
     if (power == true) {
-        //sequence = [];
+        sequence = [];
         playerSequence = [];
         lightups = 0;
         interval = 0;
         level = 1;
-        correctSequence = true;
-        $(".play-button").html("Reset");
+        $(".play-button").html("RESET");
         $(".console").html(level);
         sequence.push(randomNumber(difficulty));
         playerTurn = false;
-        console.log(sequence);
-        Interval = setInterval(playGame,1100);
+        power = false;
+        interval = setInterval(playGame, 1000);
     };
 };
 
 function playGame() {
-    power = false;
-    if (lightups == level) {
-        console.log("players turn");
-        clearInterval(Interval);
-        playerTurn = true;
-        power = true;
-    };
+    clicks = 0;
+    playerSequence = [];
     if (playerTurn == false) {
-        setTimeout(function() {
+        setTimeout(function () {
             if (sequence[lightups] == 0) {
                 one();
             } else if (sequence[lightups] == 1) {
@@ -124,42 +121,104 @@ function playGame() {
             lightups++
         }, 300)
     };
+    if (lightups == level) {
+        clearInterval(interval);
+        playerTurn = true;
+        power = true;
+    };
 };
 
 function one() {
     topLeft.removeClass("light");
-    setTimeout(function() {
+    setTimeout(function () {
         topLeft.addClass("light");
-    }, 700);
+    }, 500);
 };
 
 function two() {
     topRight.removeClass("light");
-    setTimeout(function() {
+    setTimeout(function () {
         topRight.addClass("light");
-    }, 700);
+    }, 500);
 };
 
 function three() {
     bottomLeft.removeClass("light");
-    setTimeout(function() {
+    setTimeout(function () {
         bottomLeft.addClass("light");
-    }, 700);
+    }, 500);
 };
 
 function four() {
     bottomRight.removeClass("light");
-    setTimeout(function() {
+    setTimeout(function () {
         bottomRight.addClass("light");
-    }, 700);
+    }, 500);
 };
 
 function five() {
     middle.removeClass("light");
-    setTimeout(function() {
+    setTimeout(function () {
         middle.addClass("light");
-    }, 700);
+    }, 500);
 };
 
+function playerGame(location) {
+    if (power == true && playerTurn == true) {
+        if (location == 0) {
+            one();
+            playerSequence.push(location);
+        } else if (location == 1) {
+            two();
+            playerSequence.push(location);
+        } else if (location == 2) {
+            three();
+            playerSequence.push(location);
+        } else if (location == 3) {
+            four();
+            playerSequence.push(location);
+        } else if (location == 4 && difficulty == 5) {
+            five();
+            playerSequence.push(location);
+        };
+        lightups = 0;
+        checkSequence();
+    };
+};
 
-
+function checkSequence() {
+    if (sequence[clicks] == playerSequence[clicks]) {
+        clicks++;
+    } else {
+        playerTurn = false;
+        playerSequence = [];
+        clicks = 0;
+        if (strict == false) {
+            gameConsole.html("X-X");
+            power = false;
+            setTimeout(function () {
+                interval = setInterval(playGame, 1000);
+                gameConsole.html(level);
+                return
+            }, 1000);
+        } else {
+            gameConsole.html("X-X RESTART");
+            setTimeout(function () {
+                startGame();
+                return;
+            }, 1000);
+        };
+    };
+    if (level == clicks) {
+        playerTurn = false;
+        level++;
+        gameConsole.html("LEVEL UP");
+        sequence.push(randomNumber(difficulty));
+        setTimeout(function () {
+            gameConsole.html(level);
+            power = false;
+            interval = setInterval(playGame, 1000);
+            gameConsole.html(level);
+        }, 1000);
+    };
+};
