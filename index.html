@@ -9,7 +9,6 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link href="css/style.css" rel="stylesheet" type="text/css">
-    <audio src=""></audio>
 </head>
 
 <body>
@@ -52,7 +51,7 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 col-lg-6">
 				<div id="outer-circle">
 					<div class="row half-circle">
 						<div id="section-1" class="simon-section simon-section-top col-6" onclick="playerGame(0)">
@@ -75,19 +74,20 @@
 					</div>
 				</div>
 			</div>
+			<div class="col-12 col-lg-6">
+				<div class="row">
+					<h2 class="level-title">LEVEL</h2>
+				</div>
+				<div class="row center">
+					<p class="col-12 md-offset-2 col-md-8 console"></p>
+				</div>
+				<div class="row">
+					<button class="btn btn-primary play-button" onclick="startGame()">Play</button>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="container-fluid center">
-		<div class="row">
-			<h2 class="level-title">LEVEL</h2>
-		</div>
-		<div class="row">
-			<p class="offset-4 col-4 console"></p>
-		</div>
-		<div class="row">
-			<button class="btn btn-primary play-button" onclick="startGame()">Play</button>
-		</div>
-	</div>
+
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<script src="js/script.js" type="text/javascript"></script>
