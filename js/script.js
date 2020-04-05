@@ -206,6 +206,9 @@ function four() {
 };
 
 function five() {
+    if (sound == true) {
+        playSound("../sounds/simonSound5.wav", 0.1);
+    };
     middle.children().addClass("light");
     if (playerTurn == false) {
         setTimeout(function () {
