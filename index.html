@@ -14,42 +14,48 @@
 <body>
 	<div class="container-fluid center">
 		<div class="row">
-			<div class="col-4">
-				<div class="button-container">
-					<div class="button-heading">POWER</div>
-					<div id="power-button-container" class="button-cover button-background-off">
-						<div id="power-button" class="on-switch button-off" onclick="buttonPower(this)"></div>
+			<div class="col-12 col-lg-6">
+				<div class="row">
+					<div class="col-4">
+						<div class="button-container">
+							<div class="button-heading">POWER</div>
+							<div id="power-button-container" class="button-cover button-background-off">
+								<div id="power-button" class="on-switch button-off" onclick="buttonPower(this)"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="button-container">
+							<div class="button-heading">STRICT</div>
+							<div id="strict-button-container" class="button-cover button-background-off">
+								<div id="strict-button" class="on-switch button-off" onclick="buttonPower(this)"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<div class="button-container">
+							<div class="button-heading">SOUND</div>
+							<div id="sound-button-container" class="button-cover button-background-on">
+								<div id="sound-button" class="on-switch button-on" onclick="buttonPower(this)"></div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-4">
-				<div class="button-container">
-					<div class="button-heading">STRICT</div>
-					<div id="strict-button-container" class="button-cover button-background-off">
-						<div id="strict-button" class="on-switch button-off" onclick="buttonPower(this)"></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-4">
-				<div class="button-container">
-					<div class="button-heading">SOUND</div>
-					<div id="sound-button-container" class="button-cover button-background-on">
-						<div id="sound-button" class="on-switch button-on" onclick="buttonPower(this)"></div>
-					</div>
-				</div>
-			</div>
-			<div id="hard-display" class="col-4 hidden-button">
-				<div class="button-container">
-					<div class="button-heading">HARD!</div>
-					<div id="hard-button-container" class="button-cover button-background-off">
-						<div id="hard-button" class="on-switch button-off" onclick="buttonPower(this)"></div>
+				<div class="row">
+					<div id="hard-display" class="col-4 hidden-button">
+						<div class="button-container">
+							<div class="button-heading">HARD!</div>
+							<div id="hard-button-container" class="button-cover button-background-off">
+								<div id="hard-button" class="on-switch button-off" onclick="buttonPower(this)"></div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="container-fluid">
+	<section class="container-fluid">
 		<div class="row">
 			<div class="col-12 col-lg-6">
 				<div id="outer-circle">
@@ -74,6 +80,8 @@
 					</div>
 				</div>
 			</div>
+
+
 			<div class="col-12 col-lg-6">
 				<div class="row">
 					<h2 class="level-title">LEVEL</h2>
@@ -86,7 +94,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
